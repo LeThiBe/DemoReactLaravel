@@ -15,5 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+    Route::get('projects', 'ProjectController@index');
+    Route::post('projects', 'ProjectController@store');
+    Route::get('projects/{id}', 'ProjectController@show');
+    Route::put('projects/{project}', 'ProjectController@markAsCompleted');
 });
